@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💌 A Letter For You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e63946;
+            --primary-dark: #d62828;
+            --secondary: #f4a5a5;
+            --accent: #ffc8dd;
+            --dark: #1d1d1f;
+            --light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background: var(--dark);
+            color: var(--dark);
+        }
+
+        /* ========== PAGE 1 - HERO ========== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(165deg, #ffd1dc 0%, #ffb3c6 30%, #ffa6c1 60%, #ff8fab 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(-30px, -30px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 60px;
+            letter-spacing: -0.02em;
+            text-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title span {
+            display: block;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .rabbit-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 60px 50px;
+            border-radius: 30px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.2);
+            margin: 0 auto;
+            max-width: 500px;
+            animation: scaleIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .rabbit-icon {
+            font-size: 100px;
+            display: block;
+            margin-bottom: 30px;
+            animation: gentle-bounce 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        }
+
+        @keyframes gentle-bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .rabbit-message {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 28px;
+            font-weight: 500;
+            color: var(--primary);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .scroll-prompt {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            animation: bounce-fade 2s ease-in-out infinite 1.5s;
+        }
+
+        @keyframes bounce-fade {
+            0%, 100% {
+                opacity: 0.6;
+                transform: translate(-50%, 0);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -15px);
+            }
+        }
+
+        .scroll-prompt p {
+            color: rgba(255,255,255,0.9);
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .scroll-arrow {
+            width: 30px;
+            height: 50px;
+            border: 3px solid rgba(255,255,255,0.9);
+            border-radius: 25px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .scroll-arrow::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            animation: scroll-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll-dot {
+            0% {
+                transform: translate(-50%, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, 25px);
+                opacity: 0;
+            }
+        }
+
+        /* ========== PAGE 2 - MAIL SECTION ========== */
+        .mail-section {
+            min-height: 100vh;
+            background: linear-gradient(165deg, #e0c3fc 0%, #d5aaff 30%, #c99fff 60%, #b88ff5 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mail-section::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .pointing-indicator {
+            font-size: 110px;
+            margin-bottom: 50px;
+            animation: sway 2.5s ease-in-out infinite;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.15));
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: rotate(-12deg);
+            }
+            50% {
+                transform: rotate(12deg);
+            }
+        }
+
+        .mail-container {
+            background: #fff;
+            padding: 70px 80px;
+            border-radius: 25px;
+            box-shadow: 0 50px 120px rgba(0,0,0,0.25);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mail-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(230,57,70,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+        }
+
+        .mail-container:hover::before {
+            width: 500px;
+            height: 500px;
+        }
+
+        .mail-container:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 60px 140px rgba(0,0,0,0.3);
+        }
+
+        .mail-container:active {
+            transform: translateY(-15px) scale(1.01);
+        }
+
+        .mail-symbol {
+            font-size: 90px;
+            display: block;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mail-label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 34px;
+            font-weight: 600;
+            color: var(--primary);
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ========== ROSE PETALS - REAL SVG ANIMATION ========== */
+        .petals-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            display: none;
+        }
+
+        .petals-rain.active {
+            display: block;
+        }
+
+        .petal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            animation: petal-fall linear forwards;
+        }
+
+        @keyframes petal-fall {
+            0% {
+                top: -5%;
+                opacity: 1;
+            }
+            100% {
+                top: 105%;
+                opacity: 0.4;
+            }
+        }
+
+        /* ========== ERROR MODAL ========== */
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 20px;
+            animation: backdrop-fade 0.4s ease-out;
+        }
+
+        .modal-backdrop.active {
+            display: flex;
+        }
+
+        @keyframes backdrop-fade {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .error-modal {
+            background: #fff;
+            padding: 60px 50px;
+            border-radius: 30px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 60px 150px rgba(0,0,0,0.6);
+            animation: modal-enter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        @keyframes modal-enter {
+            from {
+                opacity: 0;
+                transform: scale(0.7) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .blurred-letter {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 100px;
+            filter: blur(18px);
+            opacity: 0.8;
+            animation: blur-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes blur-pulse {
+            0%, 100% {
+                filter: blur(18px);
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                filter: blur(22px);
+                transform: translateX(-50%) scale(1.05);
+            }
+        }
+
+        .error-icon {
+            font-size: 90px;
+            margin-bottom: 30px;
+            display: inline-block;
+            animation: shake-error 0.6s ease-in-out;
+        }
+
+        @keyframes shake-error {
+            0%, 100% {
+                transform: translateX(0) rotate(0deg);
+            }
+            25% {
+                transform: translateX(-12px) rotate(-5deg);
+            }
+            75% {
+                transform: translateX(12px) rotate(5deg);
+            }
+        }
+
+        .error-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 35px;
+            line-height: 1.3;
+        }
+
+        .error-info {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe6ef 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 6px solid var(--primary);
+            margin-top: 30px;
+        }
+
+        .error-info p {
+            color: #333;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .error-info strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .solve-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: #fff;
+            border: none;
+            padding: 18px 55px;
+            font-size: 19px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 20px 50px rgba(230,57,70,0.4);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.3px;
+        }
+
+        .solve-btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px rgba(230,57,70,0.5);
+        }
+
+        .solve-btn:active {
+            transform: translateY(-3px);
+        }
+
+        /* ========== QUESTION PAGE ========== */
+        .question-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-size: 400% 400%;
+            animation: gradient-flow 15s ease infinite;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .question-page.active {
+            display: flex;
+        }
+
+        @keyframes gradient-flow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .ambient-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+        }
+
+        .shape {
+            position: absolute;
+            font-size: 60px;
+            animation: ambient-float 25s infinite ease-in-out;
+        }
+
+        @keyframes ambient-float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.15;
+            }
+            50% {
+                transform: translate(-40px, -60px) rotate(180deg);
+                opacity: 0.25;
+            }
+        }
+
+        .question-box {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(30px);
+            padding: 80px 60px;
+            border-radius: 40px;
+            max-width: 750px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 60px 150px rgba(0,0,0,0.5);
+            animation: box-appear 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes box-appear {
+            from {
+                opacity: 0;
+                transform: scale(0.6) rotate(-3deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .love-icon {
+            font-size: 110px;
+            margin-bottom: 40px;
+            display: inline-block;
+            animation: heart-pulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(230,57,70,0.3));
+        }
+
+        @keyframes heart-pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1.12);
+            }
+            60% {
+                transform: scale(1);
+            }
+        }
+
+        .question-heading {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 70px;
+            line-height: 1.2;
+        }
+
+        .answer-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            max-width: 550px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .answer-btn {
+            padding: 22px 45px;
+            font-size: 26px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: #fff;
+            grid-column: 1;
+        }
+
+        .btn-yes:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(245,87,108,0.5);
+        }
+
+        .btn-no {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+            color: #fff;
+            position: relative;
+            grid-column: 2;
+        }
+
+        /* ========== FIREWORKS ========== */
+        .fireworks-display {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10002;
+            display: none;
+        }
+
+        .fireworks-display.active {
+            display: block;
+        }
+
+        .firework-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: firework-burst 1.5s ease-out forwards;
+        }
+
+        @keyframes firework-burst {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .congrats-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 40px rgba(255,107,157,0.9),
+                         0 0 80px rgba(255,107,157,0.6),
+                         0 10px 50px rgba(0,0,0,0.5);
+            z-index: 10003;
+            display: none;
+            animation: congrats-pop 1.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-style: italic;
+        }
+
+        .congrats-text.active {
+            display: block;
+        }
+
+        @keyframes congrats-pop {
+            0% {
+                transform: translate(-50%, -50%) scale(0) rotate(-10deg);
+                opacity: 0;
+            }
+            70% {
+                transform: translate(-50%, -50%) scale(1.15) rotate(3deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .rabbit-card {
+                padding: 50px 35px;
+            }
+
+            .mail-container {
+                padding: 60px 40px;
+            }
+
+            .error-modal {
+                padding: 50px 30px;
+            }
+
+            .question-box {
+                padding: 60px 35px;
+            }
+
+            .answer-buttons {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .btn-yes,
+            .btn-no {
+                grid-column: 1;
+            }
+
+            .answer-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .rabbit-card {
+                padding: 40px 25px;
+            }
+
+            .mail-container {
+                padding: 50px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1 -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Dear Friend,
+                <span>I have written a letter for you</span>
+            </h1>
+            
+            <div class="rabbit-card">
+                <span class="rabbit-icon">🐰</span>
+                <p class="rabbit-message">यह पत्र तुम्हारे लिए है 💌</p>
+            </div>
+        </div>
+        
+        <div class="scroll-prompt">
+            <p>नीचे स्क्रॉल करें</p>
+            <div class="scroll-arrow"></div>
+        </div>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="mail-section">
+        <div class="pointing-indicator">🐰👉</div>
+        
+        <div class="mail-container" id="mailBtn">
+            <span class="mail-symbol">✉️</span>
+            <p class="mail-label">Click Here to Open Mail</p>
+        </div>
+    </div>
+
+    <!-- ROSE PETALS -->
+    <div class="petals-rain" id="petalsRain"></div>
+
+    <!-- ERROR MODAL -->
+    <div class="modal-backdrop" id="errorBackdrop">
+        <div class="error-modal">
+            <div class="blurred-letter">💌</div>
+            <div class="error-icon">⚠️</div>
+            <h2 class="error-title">आपकी खूबसूरती को देखकर सिस्टम में Error आ गई है!</h2>
+            
+            <div class="error-info">
+                <p><strong>नोट:</strong> अगर यह Error को ठीक करना है तो यहाँ क्लिक करो और सवाल का जवाब दो:</p>
+                <button class="solve-btn" id="solveBtn">यहाँ क्लिक करें</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- QUESTION PAGE -->
+    <div class="question-page" id="questionPage">
+        <div class="ambient-shapes" id="ambientShapes"></div>
+        
+        <div class="question-box">
+            <div class="love-icon">💕</div>
+            <h2 class="question-heading">क्या आप मुझसे प्यार करती हैं?</h2>
+            
+            <div class="answer-buttons" id="answerButtons">
+                <button class="answer-btn btn-yes" id="btnYes">हाँ</button>
+                <button class="answer-btn btn-no" id="btnNo">नहीं</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIREWORKS -->
+    <div class="fireworks-display" id="fireworksDisplay"></div>
+    <div class="congrats-text" id="congratsText">Oh My God! 💖</div>
+
+    <script>
+        // Ambient shapes
+        function createAmbientShapes() {
+            const container = document.getElementById('ambientShapes');
+            const symbols = ['💕', '💖', '💗', '💝', '💞', '❤️', '🌹', '💐'];
+            
+            for (let i = 0; i < 30; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'shape';
+                shape.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                shape.style.left = Math.random() * 100 + '%';
+                shape.style.top = Math.random() * 100 + '%';
+                shape.style.animationDelay = Math.random() * 25 + 's';
+                shape.style.animationDuration = (Math.random() * 15 + 20) + 's';
+                container.appendChild(shape);
+            }
+        }
+
+        createAmbientShapes();
+
+        // Rose petal SVG
+        function createRosePetal() {
+            const petal = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            petal.setAttribute('viewBox', '0 0 30 30');
+            petal.setAttribute('class', 'petal');
+            
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', 'M15,5 Q20,8 22,12 Q18,15 15,20 Q12,15 8,12 Q10,8 15,5 Z');
+            path.setAttribute('fill', `hsl(${Math.random() * 30 + 340}, ${Math.random() * 30 + 60}%, ${Math.random() * 20 + 45}%)`);
+            path.setAttribute('opacity', '0.9');
+            
+            petal.appendChild(path);
+            return petal;
+        }
+
+        // Mail click - Rose petals
+        document.getElementById('mailBtn').addEventListener('click', function() {
+            const petalsContainer = document.getElementById('petalsRain');
+            petalsContainer.classList.add('active');
+            
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    const petal = createRosePetal();
+                    petal.style.left = Math.random() * 100 + '%';
+                    petal.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                    petal.style.animationDelay = Math.random() * 0.5 + 's';
+                    
+                    // Random rotation and sway
+                    const rotation = Math.random() * 360;
+                    const sway = Math.random() * 100 - 50;
+                    petal.style.transform = `rotate(${rotation}deg)`;
+                    petal.style.setProperty('--sway', sway + 'px');
+                    
+                    petalsContainer.appendChild(petal);
+                    
+                    setTimeout(() => petal.remove(), 6000);
+                }, i * 30);
+            }
+            
+            setTimeout(() => {
+                petalsContainer.classList.remove('active');
+                document.getElementById('errorBackdrop').classList.add('active');
+            }, 3000);
+        });
+
+        // Solve button
+        document.getElementById('solveBtn').addEventListener('click', function() {
+            document.getElementById('errorBackdrop').classList.remove('active');
+            document.getElementById('questionPage').classList.add('active');
+        });
+
+        // No button movement
+        const btnNo = document.getElementById('btnNo');
+        const answerButtons = document.getElementById('answerButtons');
+        let attempts = 0;
+
+        function moveNoButton() {
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Mobile: Move within safe area
+                const buttonHeight = btnNo.offsetHeight;
+                const containerHeight = answerButtons.offsetHeight;
+                const maxMove = containerHeight - buttonHeight - 20;
+                
+                const randomY = Math.random() * maxMove;
+                btnNo.style.position = 'absolute';
+                btnNo.style.top = randomY + 'px';
+                btnNo.style.left = '0';
+                btnNo.style.right = '0';
+                btnNo.style.margin = '0 auto';
+            } else {
+                // Desktop: Move horizontally and vertically
+                const buttonRect = btnNo.getBoundingClientRect();
+                const containerRect = answerButtons.getBoundingClientRect();
+                
+                const maxX = containerRect.width - buttonRect.width - 20;
+                const maxY = containerRect.height - buttonRect.height - 20;
+                
+                const randomX = Math.random() * Math.max(0, maxX);
+                const randomY = Math.random() * Math.max(0, maxY);
+                
+                btnNo.style.position = 'absolute';
+                btnNo.style.left = randomX + 'px';
+                btnNo.style.top = randomY + 'px';
+            }
+            
+            attempts++;
+            if (attempts > 4) {
+                btnNo.style.transition = 'all 0.2s ease';
+            }
+        }
+
+        // Desktop - hover
+        btnNo.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 768) {
+                moveNoButton();
+            }
+        });
+
+        // Mobile - touch
+        btnNo.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            moveNoButton();
+        });
+
+        btnNo.addEventListener('click', function(e) {
+            e.preventDefault();
+            moveNoButton();
+        });
+
+        // Yes button
+        document.getElementById('btnYes').addEventListener('click', function() {
+            document.getElementById('congratsText').classList.add('active');
+            
+            const fireworksContainer = document.getElementById('fireworksDisplay');
+            fireworksContainer.classList.add('active');
+            
+            const colors = ['#f093fb', '#f5576c', '#667eea', '#764ba2', '#ffd700', '#ff1493', '#00ff88', '#ff6b9d'];
+            
+            function createFirework(x, y) {
+                for (let i = 0; i < 40; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'firework-particle';
+                    particle.style.left = x + 'px';
+                    particle.style.top = y + 'px';
+                    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    const angle = (Math.PI * 2 * i) / 40;
+                    const distance = 130 + Math.random() * 90;
+                    particle.style.setProperty('--tx', Math.cos(angle) * distance + 'px');
+                    particle.style.setProperty('--ty', Math.sin(angle) * distance + 'px');
+                    
+                    fireworksContainer.appendChild(particle);
+                    
+                    setTimeout(() => particle.remove(), 1500);
+                }
+            }
+            
+            // Multiple fireworks
+            for (let i = 0; i < 12; i++) {
+                setTimeout(() => {
+                    const x = Math.random() * window.innerWidth;
+                    const y = Math.random() * window.innerHeight;
+                    createFirework(x, y);
+                }, i * 280);
+            }
+            
+            // WhatsApp redirect
+            setTimeout(() => {
+                const msg = encodeURIComponent('अब अपने दोस्त को अपने दिल की बात बता दो');
+                window.location.href = `https://wa.me/918140989911?text=${msg}`;
+            }, 4000);
+        });
+
+        // Add sway animation to petals
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes petal-fall {
+                0% {
+                    top: -5%;
+                    opacity: 1;
+                    transform: translateX(0) rotate(0deg);
+                }
+                50% {
+                    transform: translateX(var(--sway, 30px)) rotate(180deg);
+                }
+                100% {
+                    top: 105%;
+                    opacity: 0.4;
+                    transform: translateX(0) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
